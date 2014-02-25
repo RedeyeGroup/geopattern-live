@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GeoPattern Tester</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+
+    <style>
+        body {
+            padding-top: 50px;
+            padding-bottom: 20px;
+        }
+    </style>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">GeoPattern-Live</a>
+        </div>
+    </div>
+</div>
+
+<div class="jumbotron">
+    <div class="container">
+        <input class="form-control input-lg" type="text" placeholder="Enter a string and watch the magic..." id="string">
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h2>PHP <small>by: <a href="https://github.com/redeyeventures/geopattern-php">arcdigital</a></small></h2>
+            <div id="php" style="width: 100%; height: 500px;"></div>
+        </div>
+        <div class="col-md-4">
+            <h2>Ruby <small>by: <a href="https://github.com/jasonlong/geo_pattern">jasonlong</a> (original)</small></h2>
+            <div id="ruby" style="width: 100%; height: 500px;"></div>
+        </div>
+        <div class="col-md-4">
+            <h2>JavaScript <small>by: <a href="https://github.com/btmills/geopattern">btmills</a></small></h2>
+            <div id="javascript" style="width: 100%; height: 500px;"></div>
+        </div>
+    </div>
+
+    <hr>
+
+    <footer>
+        <p>Site created by <a href="https://github.com/arcdigital">Anand Capur</a> & <a href="https://github.com/redeyeventures">Redeye Ventures</a></p>
+    </footer>
+</div> <!-- /container -->
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+<script src="javascript/geopattern.min.js"></script>
+
+<script>
+    $('#string')
+            .on('keyup', function () {
+
+                $('#javascript').geopattern(this.value);
+
+                $.get("{PATH_TO_PHP_SERVER}", {string: this.value}, function( data ) {
+                    $('#php').css('background-image', 'url("data:image/svg+xml;base64,'+data+'")');
+                });
+
+                $.get("{PATH_TO_RUBY_SERVER}", {string: this.value}, function( data ) {
+                    $('#ruby').css('background-image', 'url("data:image/svg+xml;base64,'+data+'")');
+                });
+
+            })
+            .trigger('keyup')
+            .focus();
+</script>
+
+</body>
+</html>
