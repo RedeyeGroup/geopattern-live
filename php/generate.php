@@ -16,5 +16,9 @@ $app->get('/', function (Request $request) use ($app) {
     return $geopattern->toBase64();
 });
 
+$app->after(function (Request $request, Response $response) {
+    $response->headers->set('Access-Control-Allow-Origin', '*');
+});
+
 
 $app->run();
