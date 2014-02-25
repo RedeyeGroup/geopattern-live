@@ -80,7 +80,7 @@
         $('#javascript').geopattern(this.value);
 
         $.get("http://php.geopattern-live.redeye.to/", {string: this.value}, function( data ) {
-          $('#php').css('background-image', data);
+          $('#php').css('background-image', 'url("data:image/svg+xml;base64,'+data+'")');
         });
 
         $.get("http://ruby.geopattern-live.redeye.to/", {string: this.value}, function( data ) {
