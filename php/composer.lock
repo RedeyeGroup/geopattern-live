@@ -97,12 +97,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/redeyeventures/geopattern-php.git",
-                "reference": "850bf2d56f490d9b3334c860116a22135368e25a"
+                "reference": "35be3abe65738930b38b30237aae59a03ae29647"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/redeyeventures/geopattern-php/zipball/850bf2d56f490d9b3334c860116a22135368e25a",
-                "reference": "850bf2d56f490d9b3334c860116a22135368e25a",
+                "url": "https://api.github.com/repos/redeyeventures/geopattern-php/zipball/35be3abe65738930b38b30237aae59a03ae29647",
+                "reference": "35be3abe65738930b38b30237aae59a03ae29647",
                 "shasum": ""
             },
             "require-dev": {
@@ -132,7 +132,7 @@
                 "pattern",
                 "svg"
             ],
-            "time": "2014-02-25 22:17:46"
+            "time": "2014-02-26 00:25:59"
         },
         {
             "name": "silex/silex",
