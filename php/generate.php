@@ -10,9 +10,7 @@ $app->get('/', function (Request $request) use ($app) {
 
     $string = $request->query->get('string');
     $geopattern = new RedeyeVentures\GeoPattern\GeoPattern();
-
-    if ($string)
-        $geopattern->setString($_GET['string']);
+    $geopattern->setString($string);
 
     return $geopattern->toBase64();
 });
